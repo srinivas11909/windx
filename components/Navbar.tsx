@@ -63,7 +63,7 @@ export  function Navbar() {
     }, 300); // matches transition duration
   };
   return <>
-    <header className="fixed top-0 left-0 w-full bg-[#fcd343] shadow-md z-50 backdrop-blur border-b border-white/10 bg-slate-950/60">
+    <header className="fixed top-0 left-0 w-full shadow-md z-50 backdrop-blur border-b border-white/10 bg-slate-950/60 !bg-[#fcd343]">
       {/* 🔹 Top Contact Bar */}
       <div className="bg-gray-100 text-sm">
         <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-2">
