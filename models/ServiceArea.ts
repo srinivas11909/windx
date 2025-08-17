@@ -1,5 +1,5 @@
-import { Schema, model, models } from 'mongoose'
-export interface IServiceArea { _id: string; name: string; slug: string; description: string; seoTitle?: string; seoDescription?: string }
+import { Schema, model, models, type Model, Types } from 'mongoose'
+export interface IServiceArea { _id?: Types.ObjectId; name: string; slug: string; description: string; seoTitle?: string; seoDescription?: string }
 const ServiceAreaSchema = new Schema<IServiceArea>({
   name: { type: String, required: true },
   slug: { type: String, required: true, unique: true },
@@ -7,4 +7,4 @@ const ServiceAreaSchema = new Schema<IServiceArea>({
   seoTitle: String,
   seoDescription: String
 }, { timestamps: true })
-export const ServiceArea = models.ServiceArea || model('ServiceArea', ServiceAreaSchema)
+export const ServiceArea: Model<IServiceArea> = models.ServiceArea || model<IServiceArea>('ServiceArea', ServiceAreaSchema)

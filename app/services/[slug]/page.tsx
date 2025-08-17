@@ -1,12 +1,13 @@
 import { dbConnect } from '@/lib/db'
 import { ServiceArea } from '@/models/ServiceArea'
+import type { IServiceArea } from '@/models/ServiceArea'
 import type { Metadata } from 'next'
 
 type Props = { params: { slug: string } }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   await dbConnect()
-  const item = await ServiceArea.findOne({ slug: params.slug }).lean()
+  const item = await ServiceArea.findOne({ slug: params.slug }).lean<IServiceArea>()
   return {
     title: item?.seoTitle || `${item?.name || 'Service'} | WindshieldPro`,
     description: item?.seoDescription || item?.description?.slice(0, 150)
