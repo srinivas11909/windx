@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import { NextResponse } from 'next/server'
 import { dbConnect } from '@/lib/db'
 import { ServiceArea } from '@/models/ServiceArea'
