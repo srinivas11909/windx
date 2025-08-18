@@ -15,9 +15,9 @@ export default function LoginForm() {
     e.preventDefault()
     setLoading(true)
     setError(null)
-    //const res = await fetch('/api/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password }) })
-    //const data = await res.json(); setLoading(false)
-    //if (!res.ok) return setError(data.error || 'Login failed')
+    const res = await fetch('/api/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password }) })
+    const data = await res.json(); setLoading(false)
+    if (!res.ok) return setError(data.error || 'Login failed')
     router.push(from)
   }
 

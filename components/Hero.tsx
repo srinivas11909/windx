@@ -38,9 +38,12 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { useRef } from "react";
+import { Swiper as SwiperClass } from "swiper";
 
 export function Hero() {
   const phone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+919999999999";
+  const swiperRef = useRef<SwiperClass | null>(null);
 
 
   const slides = [
@@ -70,15 +73,19 @@ export function Hero() {
           background:
             "radial-gradient(800px 400px at 20% 10%, #0ea5e9 0%, transparent 60%), radial-gradient(600px 300px at 80% 0%, #38bdf8 0%, transparent 60%)",
         }}
+        
+        onMouseEnter={() => swiperRef.current?.autoplay?.stop()}
+        onMouseLeave={() => swiperRef.current?.autoplay?.start()}
       />
 
       <Swiper
-        modules={[Autoplay, Pagination]}
+        modules={[Pagination]}
         autoplay={{ delay: 4000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         navigation
         loop
         className="w-full"
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>

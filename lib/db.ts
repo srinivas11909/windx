@@ -1,5 +1,8 @@
 import mongoose from 'mongoose'
-const MONGODB_URI = process.env.MONGODB_URI as string
+//console.log("MONGODB_URI =", process.env.MONGODB_URI);
+
+//const MONGODB_URI = process.env.MONGODB_URI as string
+const MONGODB_URI = "mongodb+srv://gsr9680:wvSrgDwZMFl1f4Bw@cluster0.bwzin.mongodb.net/windshield_db?retryWrites=true&w=majority&appName=Cluster0"
 console.log(MONGODB_URI)
 if (!MONGODB_URI) { throw new Error('MONGODB_URI not set') }
 

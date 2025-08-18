@@ -1,6 +1,7 @@
 import { Hero } from '@/components/Hero'
 import { ServiceCard } from '@/components/ServiceCard'
 import {InsurancePartners} from "@/components/InsurancePartners";
+import { CarServiceForm } from '@/components/CarServiceForm';  
 
 import Link from 'next/link'
 
@@ -14,6 +15,9 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <section>
+        <CarServiceForm />
+      </section>
       <section id="services" className="container py-16 space-y-8">
         <h2 className="text-3xl font-bold">Our Services</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">

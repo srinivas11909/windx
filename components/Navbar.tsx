@@ -35,8 +35,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { MdEmail, MdLocationOn } from "react-icons/md";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
-//import WindDX from "public/windx-logo.svg"
-import Image from "next/image";
+
 
 
 export  function Navbar() {
@@ -66,32 +65,36 @@ export  function Navbar() {
     <header className="fixed top-0 left-0 w-full shadow-md z-50 backdrop-blur border-b border-white/10 bg-slate-950/60 !bg-[#fcd343]">
       {/* 🔹 Top Contact Bar */}
       <div className="bg-gray-100 text-sm">
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-2">
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2">
-              <MdEmail className="text-[#bd2425]" />
-              <a href="mailto:info@windshieldmasters.co.in" className="hover:underline text-sm font-bold text-gray-900">
-                info@windshieldmasters.co.in
-              </a>
-            </div>
-            <div className="flex items-center gap-2">
-              <MdLocationOn className="text-[#bd2425]" />
-              <span className="text-gray-900 text-sm font-bold">HBR Layout, Vishakapatnam</span>
-            </div>
-          </div>
-          <div className="flex gap-4 text-gray-700">
-            <Link href="#"><FaFacebookF color="#bd2425"/></Link>
-            <Link href="#"><FaTwitter color="#bd2425"/></Link>
-            <Link href="#"><FaLinkedinIn color="#bd2425"/></Link>
-            <Link href="#"><FaInstagram color="#bd2425"/></Link>
-          </div>
-        </div>
+  <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between md:items-center gap-2 px-4 py-2">
+    {/* Left Section - Email and Location */}
+    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+      <div className="flex items-center gap-2">
+        <MdEmail className="text-[#DC2626]" />
+        <a href="mailto:info@windshieldmasters.co.in" className="hover:underline text-sm font-bold text-gray-900">
+          info@windshieldmasters.co.in
+        </a>
       </div>
+      <div className="flex items-center gap-2">
+        <MdLocationOn className="text-[#DC2626]" />
+        <span className="text-gray-900 text-sm font-bold">HBR Layout, Vishakapatnam</span>
+      </div>
+    </div>
+
+    {/* Right Section - Social Icons */}
+    <div className="flex gap-4 text-gray-700 justify-center md:justify-start">
+      <Link href="#" aria-label="Facebook"><FaFacebookF color="#DC2626"/></Link>
+      <Link href="#" aria-label="Twitter"><FaTwitter color="#DC2626"/></Link>
+      <Link href="#" aria-label="Linkedin"><FaLinkedinIn color="#DC2626"/></Link>
+      <Link href="#" aria-label="Instagram"><FaInstagram color="#DC2626"/></Link>
+    </div>
+  </div>
+</div>
+
 
       {/* 🔹 Main Nav */}
       <nav className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
         <div className="text-2xl font-bold text-red-600">
-          <Link href={'/'}>
+          <Link href={'/'} aria-label="WINDX">
             {/* <Image src={'/windx-logo.svg'} alt="winddx" width={120} height={50}/> */}
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" width={'115px'}>
               <path d="M180 40 Q300 20 420 40 L400 120 Q300 130 200 120 Z"
@@ -119,7 +122,7 @@ export  function Navbar() {
         pathname === "/contact" ? "text-red-600 font-semibold border-b-2 border-red-600" : ""
       }`}>Contact</Link></li>
         </ul>
-        <button onClick={() => setTimeout(() => {setOpen(true)}, 300)} className="md:hidden px-2 py-1 border border-gray-900 rounded text-gray-800">☰</button>
+        <button onClick={() => setOpen(true)} className="md:hidden px-2 py-1 border border-gray-900 rounded text-gray-800">☰</button>
       </nav>
     </header>
 
@@ -169,10 +172,10 @@ export  function Navbar() {
   } transition-colors`} onClick={closeDrawer}>Contact</Link>
             </nav>
             <div className="mt-auto flex gap-4 pt-6 border-t text-red-600">
-              <Link href="#"><FaFacebookF color="#bd2425"/></Link>
-              <Link href="#"><FaTwitter color="#bd2425" /></Link>
-              <Link href="#"><FaLinkedinIn  color="#bd2425"/></Link>
-              <Link href="#"><FaInstagram color="#bd2425" /></Link>
+              <Link href="#" aria-label="Facebook"><FaFacebookF color="#DC2626"/></Link>
+              <Link href="#" aria-label="Twitter"><FaTwitter color="#DC2626" /></Link>
+              <Link href="#" aria-label="Linkedin"><FaLinkedinIn  color="#DC2626"/></Link>
+              <Link href="#" aria-label="Instagram"><FaInstagram color="#DC2626" /></Link>
             </div>
           </div>
         </div>
